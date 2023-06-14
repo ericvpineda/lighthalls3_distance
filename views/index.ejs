@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    
+    <h1>Haversine distance between two coordinates.</h1>
+
+    <form action="/calculate" method="POST">
+
+        <label for="point1">Point A:</label>
+        <input name="point1" id="point1" type="text" value="37.9480, 122.0608">
+
+        <br>
+
+        <label for="point2">Point B:</label>
+        <input name="point2" id="point2" type="text" value="40.7128, 74.0060">
+
+        <br>
+
+        <button>Calculate</button>
+
+    </form>
+    
+    <% if (distance) { %>
+
+        <div>
+
+            Distance: <%= distance %> km
+
+        </div>
+
+    <% } %>
+
+</body>
+</html>
