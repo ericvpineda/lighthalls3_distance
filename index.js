@@ -29,26 +29,27 @@ app.get("/", (req, res) => {
   //   - if so, render index page with calculated distance
   //   - else, just render index page
 
+  // Render home page without distance variable
   if (validated_coordinates.length == 0) {
     res.render("index", { distance: null });
+  
+  // Render home page with distance variable
   } else {
     // TODO: Get calculated distance
     distance = getHaversineDistance(...validated_coordinates);
+    
+    // Empty coordiantes list
     validated_coordinates = [];
+    
     res.render("index", { distance });
   }
 });
 
-// Recieve coordinates
+// POST resquest to recieve 2 locations
 // Note: req.body -- get body information from form
 app.post("/calculate", (req, res) => {
-  // Steps
-  // - validate longitude, latitude (float, float)
-  //  - edge cases:
-  //      - leading/trailing spaces
-  //      - non numeric characters
-  //      - include decimal for float values
 
+  // Get coordinates from request
   input_coordinates = [req.body.point1, req.body.point2];
   
   // TODO: validate input

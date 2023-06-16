@@ -3,17 +3,34 @@ const cos = Math.cos
 const sin = Math.sin
 const earthRadius = 6371 // Radius of earth in km
 
-// TODO: Validates input coordiantes are well formred and within range
-// Note:
-// - cannot use + operate to concatenate js lists 
+// TODO: Validates input coordiantes are well formed and within long/lat range 
+// Note: cannot use + operate to concatenate js lists 
 function validate(coordinates) {
+
+    // Destructure coordinates
     [point1, point2] = coordinates
 
-    coord1 = point1.split(",")
-    coord2 = point2.split(",")
+    // Validate coordinates
+    // 1. check valid regex (format: latitude , longitude)
+    // Note: regex does not allow (\d.)
+    const pattern = /^\s*[\+\-]?\s*0*(([1-8]?\d)?(\.\d+)?|90(\.0*)?)\s*,\s*[\+\-]?\s*0*(([1-9]?\d)?(\.\d+)?|(1[0-7]?\d)(\.\d+)?|180(\.0*)?)\s*$/
+    const regex = new RegExp(pattern)
+    const is_valid_point1 = regex.test(point1)
+    const is_valid_point2 = regex.test(point2)
 
-    return [parseFloat(coord1[0]), parseFloat(coord1[1]),
-    parseFloat(coord2[0]), parseFloat(coord2[1])]
+    if (is_valid_point1 && is_valid_point2) {
+        
+        // 2. split coordinates
+        points = [...point1.split(","), ...point2.split(",")]
+        validated_points = []
+        
+        for (let coord of points) {
+            coord.trim()
+            validated_points.push(parseFloat(coord))
+        }
+        return validated_points
+    }
+    return []
 }
 
 // Get air distance between two points in km
