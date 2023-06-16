@@ -2,6 +2,8 @@
 package-lock.json
 start.sh
 notes.md
+index.scss
+index.css.map
 
 # Folders
 node_modules

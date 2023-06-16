@@ -20,6 +20,9 @@ app.use(express.urlencoded({ extended: true }));
 // Allow parse json data
 app.use(express.json());
 
+// Serve static files
+app.use(express.static(__dirname + '/public'))
+
 let validated_coordinates = [];
 
 // Home page
