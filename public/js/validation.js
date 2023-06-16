@@ -23,8 +23,6 @@ window.onload = () => {
 
         console.log("DEBUG: valid=", is_valid_point1, is_valid_point2)
         if (is_valid_point1 && is_valid_point2) {
-            coordInput1.classList.add("is-valid")
-            coordInput2.classList.add("is-valid")
             formElem.submit()
         } else {
 
