@@ -4,6 +4,7 @@ start.sh
 notes.md
 index.scss
 index.css.map
+.env
 
 # Folders
 node_modules
