@@ -2,7 +2,7 @@ const express = require("express");
 const ejsMate = require("ejs-mate");
 const app = express();
 const path = require("path");
-const localPort = 3000;
+const PORT = 3000;
 const { format_coordinates, getHaversineDistance } = require("../utils");
 
 // Allow for layout, partial, block templates
@@ -62,7 +62,4 @@ app.post("/calculate", (req, res) => {
 });
 
 
-
-app.listen(localPort, () => {
-  console.log("Listening on port 3000...");
-});
+app.listen(PORT, () => console.log("Listening on port 3000..."));
