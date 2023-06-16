@@ -3,7 +3,7 @@ const ejsMate = require("ejs-mate");
 const app = express();
 const path = require("path");
 const localPort = 3000;
-const { validate, getHaversineDistance } = require("./utils");
+const { format_coordinates, getHaversineDistance } = require("./utils");
 
 // Allow for layout, partial, block templates
 app.engine("ejs", ejsMate);
@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
   
   // Render home page with distance variable
   } else {
-    // TODO: Get calculated distance
+    
     distance = getHaversineDistance(...validated_coordinates);
     
     // Empty coordiantes list
@@ -55,8 +55,8 @@ app.post("/calculate", (req, res) => {
   // Get coordinates from request
   input_coordinates = [req.body.point1, req.body.point2];
   
-  // TODO: validate input
-  validated_coordinates = validate(input_coordinates);
+  // Assume coordinates are already validated
+  validated_coordinates = format_coordinates(input_coordinates);
 
   res.redirect("/");
 });
