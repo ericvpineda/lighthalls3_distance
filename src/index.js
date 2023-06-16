@@ -1,9 +1,9 @@
+const { format_coordinates, getHaversineDistance } = require("../utils");
 const express = require("express");
 const ejsMate = require("ejs-mate");
 const app = express();
 const path = require("path");
 const PORT = 3000;
-const { format_coordinates, getHaversineDistance } = require("../utils");
 
 // Allow for layout, partial, block templates
 app.engine("ejs", ejsMate);
@@ -12,7 +12,7 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 
 // Set routes to views folder
-app.set("views", path.join(__dirname, "/views"));
+app.set("views", path.join(__dirname, "../views"));
 
 // Allow parse url form data
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve static files
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + './../public'))
 
 let validated_coordinates = [];
 
