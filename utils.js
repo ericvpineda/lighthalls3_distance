@@ -48,7 +48,9 @@ function getHaversineDistance(lat1, long1, lat2, long2) {
     a = sin(delta_phi / 2) ** 2 + cos(phi1) * cos(phi2) * sin(delta_lambda / 2) ** 2
     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 
-    return earthRadius * c // Returns in km
+    unformated_dist = earthRadius * c
+    
+    return unformated_dist.toFixed(2) // Returns in km
 } 
 
 module.exports = {validate, getHaversineDistance}
