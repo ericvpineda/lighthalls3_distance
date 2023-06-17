@@ -9,6 +9,7 @@ function validate(point) {
     return regex.test(point)
 }
 
+// Query document after elements rendered
 window.onload = () => {
 
     const formElem = document.querySelector(".main-form");
@@ -21,9 +22,11 @@ window.onload = () => {
         is_valid_point1 = validate(coordInput1.value)
         is_valid_point2 = validate(coordInput2.value)
 
-        console.log("DEBUG: valid=", is_valid_point1, is_valid_point2)
+        // Both points validated 
         if (is_valid_point1 && is_valid_point2) {
+        
             formElem.submit()
+        
         } else {
 
             if (!is_valid_point1) {
@@ -41,7 +44,6 @@ window.onload = () => {
                 coordInput2.classList.add("is-valid")
                 coordInput2.classList.remove("is-invalid")
             }
-
         }
     })
 }

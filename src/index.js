@@ -27,13 +27,10 @@ let validated_coordinates = [];
 
 // Home page
 app.get("/", (req, res) => {
-  // Steps:
-  // - check if coordinates values exist
-  //   - if so, render index page with calculated distance
-  //   - else, just render index page
 
   // Render home page without distance variable
   if (validated_coordinates.length == 0) {
+    
     res.render("index", { distance: null });
   
   // Render home page with distance variable
@@ -58,6 +55,7 @@ app.post("/calculate", (req, res) => {
   // Assume coordinates are already validated
   validated_coordinates = format_coordinates(input_coordinates);
 
+  // Redirect to home page
   res.redirect("/");
 });
 

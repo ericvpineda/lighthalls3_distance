@@ -1,4 +1,4 @@
-// Constants/Functions
+// Constants
 const cos = Math.cos
 const sin = Math.sin
 const earthRadius = 6371 // Radius of earth in km
@@ -8,10 +8,10 @@ function format_coordinates(coordiantes) {
 
     // Destructure coordinates
     [point1, point2] = coordiantes
-
      points = [...point1.split(","), ...point2.split(",")]
      validated_points = []
      
+     // Remove white space and append float to validated list
      for (let coord of points) {
          coord.trim()
          validated_points.push(parseFloat(coord))

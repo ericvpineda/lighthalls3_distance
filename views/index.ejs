@@ -1,75 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
 
     <script src="./js/noValidate.js"></script>
     <script src="./js/validation.js"></script>
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Great Circle Calculator</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Create background of shooting stars  -->
     <div class="stars">
-
-        <% for(let i=0; i < 50; i++) { %>
-
-            <div class="star"></div>
-
-        <% } %>
-
+      <% for(let i=0; i < 50; i++) { %>
+      <div class="star"></div>
+      <% } %>
     </div>
 
-    
     <main class="main-content">
-    
-        <h1>Great Circle Calculator</h1>
-        <form class="main-form needs-validation" action="/calculate" method="POST" novalidate>
-    
-            <div class="d-flex flex-md-row flex-column justify-content-center alighn-items-center mb-2">
-                <label class="form-label" for="point1">Point A:</label>
-                <div>
-                    <input class="form-control" name="point1" id="point1" type="text" placeholder="latitude, longitude" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        Enter in decimal format as "latitude, longitude".
-                    </div>
-                </div>
+      <h1>Great Circle Calculator</h1>
+      <form
+        class="main-form needs-validation"
+        action="/calculate"
+        method="POST"
+        novalidate
+      >
+        <div
+          class="d-flex flex-md-row flex-column justify-content-left alighn-items-center mb-2"
+        >
+          <label class="form-label" for="point1">Point A:</label>
+          <div>
+            <input
+              class="form-control"
+              name="point1"
+              id="point1"
+              type="text"
+              placeholder="latitude, longitude"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">
+              Enter in decimal format as "latitude, longitude".
             </div>
-    
-            <div class="d-flex flex-md-row flex-column justify-content-center alighn-items-center ">
-                <label class="form-label" for="point2">Point B:</label>
-                <div>
-                    <input class="form-control" name="point2" id="point2" type="text" placeholder="latitude, longitude" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        Enter in decimal format as "latitude, longitude".
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary">Calculate</button>
-        </form>
-    
-        <% if (distance) { %>
-            <span>
-                Distance: <%= distance %> km
-            </span>
-        <% } %>
-    
-        </main>
+          </div>
+        </div>
 
-</body>
+        <div
+          class="d-flex flex-md-row flex-column justify-content-left alighn-items-center"
+        >
+          <label class="form-label" for="point2">Point B:</label>
+          <div>
+            <input
+              class="form-control"
+              name="point2"
+              id="point2"
+              type="text"
+              placeholder="latitude, longitude"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">
+              Enter in decimal format as "latitude, longitude".
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary">Calculate</button>
+      </form>
+
+      <% if (distance) { %>
+      <span> Distance: <%= distance %> km </span>
+      <% } %>
+    </main>
+  </body>
 </html>
